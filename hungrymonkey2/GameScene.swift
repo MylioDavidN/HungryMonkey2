@@ -61,8 +61,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func didBeginContact(contact: SKPhysicsContact) {
-        NSLog("Hello")
+        //NSLog("Hello")
+        
+        var firstBody : SKPhysicsBody = contact.bodyA
+        var secondBody : SKPhysicsBody = contact.bodyB
+        
+        if (((firstBody.categoryBitMask == PhysicsCategory.Monkey) && (secondBody.categoryBitMask == PhysicsCategory.Banana))
+            || ((firstBody.categoryBitMask == PhysicsCategory.Banana) && (secondBody.categoryBitMask == PhysicsCategory.Monkey))) {
+            CollisionMonkeyWithBanana(firstBody.node as! SKSpriteNode, Banana: secondBody.node as! SKSpriteNode)
+        }
+        
     }
+    
+    func CollisionMonkeyWithBanana(Monkey: SKSpriteNode, Banana: SKSpriteNode) {
+        //NSLog("another banana eaten")
+        
+        Banana.removeFromParent()
+    }
+    
     
     func dropBananas() {
         var Banana = SKSpriteNode(imageNamed: "supporting_files/banana.png")
