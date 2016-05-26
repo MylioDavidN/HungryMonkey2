@@ -8,7 +8,13 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+struct PhysicsCategory {
+    static let Banana: UInt32 = 1
+    static let Monkey: UInt32 = 3
+}
+
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var Monkey = SKSpriteNode()
     var Background = SKSpriteNode(imageNamed: "supporting_files/bg.jpg")
@@ -17,6 +23,8 @@ class GameScene: SKScene {
     var TextureArray = [SKTexture]()
     
     override func didMoveToView(view: SKView) {
+        
+        physicsWorld.contactDelegate = self
         
         Background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         Background.zPosition = -5
@@ -38,12 +46,22 @@ class GameScene: SKScene {
         Monkey.size = CGSize(width: 70, height: 140)
         Monkey.position = CGPoint(x: self.size.width / 2, y: self.size.height / 5)
         
+        Monkey.physicsBody = SKPhysicsBody(rectangleOfSize: Monkey.size)
+        Monkey.physicsBody?.affectedByGravity = false
+        Monkey.physicsBody?.categoryBitMask = PhysicsCategory.Monkey
+        Monkey.physicsBody?.dynamic = false
+        
         
         var BananaTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("dropBananas"), userInfo: nil, repeats: true)
         
         
         self.addChild(Monkey)
         
+    }
+    
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        NSLog("Hello")
     }
     
     func dropBananas() {
@@ -54,9 +72,16 @@ class GameScene: SKScene {
         var DropPoint = UInt32(MaxValue - MinValue)
         
         Banana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
+        Banana.physicsBody = SKPhysicsBody(rectangleOfSize: Banana.size)
+        Banana.physicsBody?.categoryBitMask = PhysicsCategory.Banana
+        Banana.physicsBody?.contactTestBitMask = PhysicsCategory.Monkey
+        Banana.physicsBody?.affectedByGravity = false
+        Banana.physicsBody?.dynamic = true
+        
         
         let action = SKAction.moveToY(-70, duration: 3.0)
-        Banana.runAction(SKAction.repeatActionForever(action))
+        let actionDone = SKAction.removeFromParent()
+        Banana.runAction(SKAction.sequence([action, actionDone]))
         
         self.addChild(Banana)
         
