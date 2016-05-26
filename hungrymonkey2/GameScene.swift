@@ -16,6 +16,9 @@ struct PhysicsCategory {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var Score = Int()
+    var ScoreLbl = UILabel()
+    
     var Monkey = SKSpriteNode()
     var Background = SKSpriteNode(imageNamed: "supporting_files/bg.jpg")
     
@@ -57,6 +60,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(Monkey)
         
+        ScoreLbl.text = "\(Score)"
+        ScoreLbl = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        ScoreLbl.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.3)
+        ScoreLbl.textColor = UIColor.whiteColor()
+        
+        self.view?.addSubview(ScoreLbl)
+        
     }
     
     
@@ -77,6 +87,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //NSLog("another banana eaten")
         
         Banana.removeFromParent()
+        
+        Score = Score + 1
+        //NSLog("\(Score)")
+        
+        ScoreLbl.text = "\(Score)"
     }
     
     
