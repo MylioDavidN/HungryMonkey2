@@ -25,6 +25,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var RottenBananaDropDuration : NSTimeInterval = 3.0
     // ===============================================
     
+    var HighScore = Int()
+    
     var Score = Int()
     var ScoreLbl = UILabel()
     
@@ -35,6 +37,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var TextureArray = [SKTexture]()
     
     override func didMoveToView(view: SKView) {
+        
+        var HighScoreDefault = NSUserDefaults.standardUserDefaults()
+        if (HighScoreDefault.valueForKey("HighScore") != nil) {
+            HighScore = HighScoreDefault.valueForKey("HighScore") as! NSInteger
+        }
+        else {
+            HighScore = 0
+        }
         
         physicsWorld.contactDelegate = self
         
@@ -114,6 +124,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func CollisionMonkeyWithRottenBanana(Monkey: SKSpriteNode, RottenBanana: SKSpriteNode) {
+        
+        // save final score
+        var ScoreDefault = NSUserDefaults.standardUserDefaults()
+        ScoreDefault.setValue(Score, forKey: "Score")
+        ScoreDefault.synchronize()
+        
+        // if score is larger than current max, then update the max
+        if (Score > HighScore) {
+            var HighScoreDefault = NSUserDefaults.standardUserDefaults()
+            HighScoreDefault.setValue(Score, forKey: "HighScore")
+        }
+        
         RottenBanana.removeFromParent()
         Monkey.removeFromParent()
         self.view?.presentScene(EndScene())
