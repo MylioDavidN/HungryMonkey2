@@ -16,7 +16,7 @@
 		6369AD691CF4BC2A00A0CA14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6369AD671CF4BC2A00A0CA14 /* LaunchScreen.storyboard */; };
 		6369AD741CF4BC4B00A0CA14 /* hungrymonkey2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AD731CF4BC4B00A0CA14 /* hungrymonkey2Tests.swift */; };
 		6369AD7F1CF627BB00A0CA14 /* images.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6369AD7E1CF627BA00A0CA14 /* images.atlas */; };
-		6369AD811CF6444000A0CA14 /* supporting_files in Resources */ = {isa = PBXBuildFile; fileRef = 6369AD801CF6444000A0CA14 /* supporting_files */; };
+		63AB128E1CFF22C6003BEFC6 /* files in Resources */ = {isa = PBXBuildFile; fileRef = 63AB128D1CFF22C5003BEFC6 /* files */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		6369AD731CF4BC4B00A0CA14 /* hungrymonkey2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hungrymonkey2Tests.swift; sourceTree = "<group>"; };
 		6369AD751CF4BC4C00A0CA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6369AD7E1CF627BA00A0CA14 /* images.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = images.atlas; sourceTree = SOURCE_ROOT; };
-		6369AD801CF6444000A0CA14 /* supporting_files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = supporting_files; path = ../../../../Downloads/supporting_files; sourceTree = "<group>"; };
+		63AB128D1CFF22C5003BEFC6 /* files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = files; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				6369AD621CF4BC2200A0CA14 /* Main.storyboard */,
 				6369AD651CF4BC2800A0CA14 /* Assets.xcassets */,
 				6369AD671CF4BC2A00A0CA14 /* LaunchScreen.storyboard */,
-				6369AD801CF6444000A0CA14 /* supporting_files */,
+				63AB128D1CFF22C5003BEFC6 /* files */,
 				6369AD6A1CF4BC2B00A0CA14 /* Info.plist */,
 			);
 			path = hungrymonkey2;
@@ -192,9 +192,9 @@
 				6369AD5D1CF4BC1900A0CA14 /* GameScene.sks in Resources */,
 				6369AD691CF4BC2A00A0CA14 /* LaunchScreen.storyboard in Resources */,
 				6369AD7F1CF627BB00A0CA14 /* images.atlas in Resources */,
+				63AB128E1CFF22C6003BEFC6 /* files in Resources */,
 				6369AD661CF4BC2800A0CA14 /* Assets.xcassets in Resources */,
 				6369AD641CF4BC2200A0CA14 /* Main.storyboard in Resources */,
-				6369AD811CF6444000A0CA14 /* supporting_files in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +407,7 @@
 				6369AD7A1CF4BC4D00A0CA14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6369AD7B1CF4BC4D00A0CA14 /* Build configuration list for PBXNativeTarget "hungrymonkey2Tests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				6369AD7D1CF4BC4D00A0CA14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

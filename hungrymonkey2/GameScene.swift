@@ -17,11 +17,19 @@ struct PhysicsCategory {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    // Game variables: change following variables to change speed of bananas
+    // ======================================================
+    var BananaScheduledInterval : NSTimeInterval = 1.0
+    var RottenBananaScheduledInterval : NSTimeInterval = 2.0
+    var BananaDropDuration : NSTimeInterval = 3.0
+    var RottenBananaDropDuration : NSTimeInterval = 3.0
+    // ===============================================
+    
     var Score = Int()
     var ScoreLbl = UILabel()
     
     var Monkey = SKSpriteNode()
-    var Background = SKSpriteNode(imageNamed: "supporting_files/bg.jpg")
+    var Background = SKSpriteNode(imageNamed: "files/bg.jpg")
     
     var TextureAtlas = SKTextureAtlas()
     var TextureArray = [SKTexture]()
@@ -41,12 +49,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for i in 2...3 {
             
-            var Name = "monkey_\(i).png"
+            let Name = "monkey_\(i).png"
             TextureArray.append(SKTexture(imageNamed: Name))
             
         }
         
-        Monkey = SKSpriteNode(imageNamed: TextureAtlas.textureNames[0] as! String)
+        Monkey = SKSpriteNode(imageNamed: TextureAtlas.textureNames[0] as String)
         Monkey.size = CGSize(width: 70, height: 140)
         Monkey.position = CGPoint(x: self.size.width / 2, y: self.size.height / 5)
         
@@ -56,9 +64,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Monkey.physicsBody?.dynamic = false
         
         
-        var BananaTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("dropBananas"), userInfo: nil, repeats: true)
+        var BananaTimer = NSTimer.scheduledTimerWithTimeInterval(BananaScheduledInterval, target: self, selector: Selector("dropBananas"), userInfo: nil, repeats: true)
         
-        var RottenBananaTimer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("dropRottenBananas"), userInfo: nil, repeats: true)
+        var RottenBananaTimer = NSTimer.scheduledTimerWithTimeInterval(RottenBananaScheduledInterval, target: self, selector: Selector("dropRottenBananas"), userInfo: nil, repeats: true)
         
         self.addChild(Monkey)
         
@@ -75,8 +83,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         //NSLog("Hello")
         
-        var firstBody : SKPhysicsBody = contact.bodyA
-        var secondBody : SKPhysicsBody = contact.bodyB
+        let firstBody : SKPhysicsBody = contact.bodyA
+        let secondBody : SKPhysicsBody = contact.bodyB
         
         if (((firstBody.categoryBitMask == PhysicsCategory.Monkey) && (secondBody.categoryBitMask == PhysicsCategory.Banana))
             || ((firstBody.categoryBitMask == PhysicsCategory.Banana) && (secondBody.categoryBitMask == PhysicsCategory.Monkey))) {
@@ -98,11 +106,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func dropBananas() {
-        var Banana = SKSpriteNode(imageNamed: "supporting_files/banana.png")
+        let Banana = SKSpriteNode(imageNamed: "files/banana.png")
         
-        var MinValue = self.size.width / 8
-        var MaxValue = self.size.width - 20
-        var DropPoint = UInt32(MaxValue - MinValue)
+        let MinValue = self.size.width / 8
+        let MaxValue = self.size.width - 20
+        let DropPoint = UInt32(MaxValue - MinValue)
         
         Banana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
         Banana.physicsBody = SKPhysicsBody(rectangleOfSize: Banana.size)
@@ -112,7 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Banana.physicsBody?.dynamic = true
         
         
-        let action = SKAction.moveToY(-70, duration: 3.0)
+        let action = SKAction.moveToY(-70, duration: BananaDropDuration)
         let actionDone = SKAction.removeFromParent()
         Banana.runAction(SKAction.sequence([action, actionDone]))
         
@@ -121,11 +129,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func dropRottenBananas() {
-        var RottenBanana = SKSpriteNode(imageNamed: "supporting_files/rottenbanana4.png")
+        let RottenBanana = SKSpriteNode(imageNamed: "files/rottenbanana4.png")
         
-        var MinValue = self.size.width / 8
-        var MaxValue = self.size.width - 20
-        var DropPoint = UInt32(MaxValue - MinValue)
+        let MinValue = self.size.width / 8
+        let MaxValue = self.size.width - 20
+        let DropPoint = UInt32(MaxValue - MinValue)
         
         RottenBanana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
         RottenBanana.physicsBody = SKPhysicsBody(rectangleOfSize: RottenBanana.size)
@@ -135,7 +143,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         RottenBanana.physicsBody?.dynamic = true
         
         
-        let action = SKAction.moveToY(-70, duration: 3.0)
+        let action = SKAction.moveToY(-70, duration: RottenBananaDropDuration)
         let actionDone = SKAction.removeFromParent()
         RottenBanana.runAction(SKAction.sequence([action, actionDone]))
         
