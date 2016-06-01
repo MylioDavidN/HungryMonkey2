@@ -45,6 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else {
             HighScore = 0
         }
+        Score = 0
         
         physicsWorld.contactDelegate = self
         
@@ -85,7 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(Monkey)
         
-        ScoreLbl.text = "\(Score)"
+        ScoreLbl.text = "\(Score)!"
         ScoreLbl = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         //ScoreLbl.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.3)
         ScoreLbl.textColor = UIColor.whiteColor()
@@ -120,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Score = Score + 1
         //NSLog("\(Score)")
         
-        ScoreLbl.text = "\(Score)"
+        ScoreLbl.text = "\(Score)!"
     }
     
     func CollisionMonkeyWithRottenBanana(Monkey: SKSpriteNode, RottenBanana: SKSpriteNode) {
