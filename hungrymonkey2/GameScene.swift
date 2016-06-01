@@ -38,6 +38,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
+        // get screen resolution
+        let bounds = UIScreen.mainScreen().bounds
+        // resize screen with new bounds
+        self.scene?.size = CGSize(width: bounds.size.width, height: bounds.size.height)
+        
         Background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         Background.zPosition = -5
         Background.size = CGSize(width: self.size.width, height: self.size.height)
@@ -72,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         ScoreLbl.text = "\(Score)"
         ScoreLbl = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        ScoreLbl.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.3)
+        //ScoreLbl.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.3)
         ScoreLbl.textColor = UIColor.whiteColor()
         
         self.view?.addSubview(ScoreLbl)
@@ -110,14 +115,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func CollisionMonkeyWithRottenBanana(Monkey: SKSpriteNode, RottenBanana: SKSpriteNode) {
         RottenBanana.removeFromParent()
+        Monkey.removeFromParent()
+        self.view?.presentScene(EndScene())
+        ScoreLbl.removeFromSuperview()
         
     }
     
     func dropBananas() {
         let Banana = SKSpriteNode(imageNamed: "files/banana.png")
         
-        let MinValue = self.size.width / 8
-        let MaxValue = self.size.width - 20
+        let MinValue = self.frame.size.width / 8
+        let MaxValue = self.frame.size.width - 20
         let DropPoint = UInt32(MaxValue - MinValue)
         
         Banana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
@@ -139,8 +147,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func dropRottenBananas() {
         let RottenBanana = SKSpriteNode(imageNamed: "files/rottenbanana4.png")
         
-        let MinValue = self.size.width / 8
-        let MaxValue = self.size.width - 20
+        let MinValue = self.frame.size.width / 8
+        let MaxValue = self.frame.size.width - 20
         let DropPoint = UInt32(MaxValue - MinValue)
         
         RottenBanana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
