@@ -90,6 +90,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             || ((firstBody.categoryBitMask == PhysicsCategory.Banana) && (secondBody.categoryBitMask == PhysicsCategory.Monkey))) {
             CollisionMonkeyWithBanana(firstBody.node as! SKSpriteNode, Banana: secondBody.node as! SKSpriteNode)
         }
+        else if (((firstBody.categoryBitMask == PhysicsCategory.Monkey) && (secondBody.categoryBitMask == PhysicsCategory.RottenBanana))
+            || ((firstBody.categoryBitMask == PhysicsCategory.RottenBanana) && (secondBody.categoryBitMask == PhysicsCategory.Monkey))) {
+            CollisionMonkeyWithRottenBanana(firstBody.node as! SKSpriteNode, RottenBanana: secondBody.node as! SKSpriteNode)
+        }
         
     }
     
@@ -104,6 +108,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ScoreLbl.text = "\(Score)"
     }
     
+    func CollisionMonkeyWithRottenBanana(Monkey: SKSpriteNode, RottenBanana: SKSpriteNode) {
+        RottenBanana.removeFromParent()
+        
+    }
     
     func dropBananas() {
         let Banana = SKSpriteNode(imageNamed: "files/banana.png")
