@@ -2,14 +2,15 @@
 //  GameScene.swift
 //  hungrymonkey2
 //
-//  Created by Dung Nguyen Tien on 5/24/16.
-//  Copyright (c) 2016 David T. Nguyen. All rights reserved.
+//  Created by David T. Nguyen on 5/24/16.
+//  Copyright (c) 2016 dunguk@gmail.com | All rights reserved.
 //
 
 import SpriteKit
 
 struct PhysicsCategory {
     static let Banana: UInt32 = 1
+    static let RottenBanana: UInt32 = 2
     static let Monkey: UInt32 = 3
 }
 
@@ -57,6 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var BananaTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("dropBananas"), userInfo: nil, repeats: true)
         
+        var RottenBananaTimer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("dropRottenBananas"), userInfo: nil, repeats: true)
         
         self.addChild(Monkey)
         
@@ -116,6 +118,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(Banana)
         
+    }
+    
+    func dropRottenBananas() {
+        var RottenBanana = SKSpriteNode(imageNamed: "supporting_files/rottenbanana4.png")
+        
+        var MinValue = self.size.width / 8
+        var MaxValue = self.size.width - 20
+        var DropPoint = UInt32(MaxValue - MinValue)
+        
+        RottenBanana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
+        RottenBanana.physicsBody = SKPhysicsBody(rectangleOfSize: RottenBanana.size)
+        RottenBanana.physicsBody?.categoryBitMask = PhysicsCategory.RottenBanana
+        RottenBanana.physicsBody?.contactTestBitMask = PhysicsCategory.Monkey
+        RottenBanana.physicsBody?.affectedByGravity = false
+        RottenBanana.physicsBody?.dynamic = true
+        
+        
+        let action = SKAction.moveToY(-70, duration: 3.0)
+        let actionDone = SKAction.removeFromParent()
+        RottenBanana.runAction(SKAction.sequence([action, actionDone]))
+        
+        self.addChild(RottenBanana)
+
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
