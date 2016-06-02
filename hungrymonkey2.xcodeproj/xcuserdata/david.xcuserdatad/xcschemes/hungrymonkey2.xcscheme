@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
-               BuildableName = "hungrymonkey2.app"
+               BuildableName = "Hungry Monkey.app"
                BlueprintName = "hungrymonkey2"
-               ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
+               ReferencedContainer = "container:hungrymonkey2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "6369AD6E1CF4BC4500A0CA14"
                BuildableName = "hungrymonkey2Tests.xctest"
                BlueprintName = "hungrymonkey2Tests"
-               ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
+               ReferencedContainer = "container:hungrymonkey2.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
-            BuildableName = "hungrymonkey2.app"
+            BuildableName = "Hungry Monkey.app"
             BlueprintName = "hungrymonkey2"
-            ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
+            ReferencedContainer = "container:hungrymonkey2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
-            BuildableName = "hungrymonkey2.app"
+            BuildableName = "Hungry Monkey.app"
             BlueprintName = "hungrymonkey2"
-            ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
+            ReferencedContainer = "container:hungrymonkey2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
-            BuildableName = "hungrymonkey2.app"
+            BuildableName = "Hungry Monkey.app"
             BlueprintName = "hungrymonkey2"
-            ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
+            ReferencedContainer = "container:hungrymonkey2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

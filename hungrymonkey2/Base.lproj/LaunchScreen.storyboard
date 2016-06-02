@@ -16,7 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SbD-Js-Rkh">
+                                <rect key="frame" x="180" y="180" width="240" height="240"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p0F-0G-ul7">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="Qev-Ab-Eit">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="Eag-HR-KTM"/>
+                                                    <constraint firstAttribute="height" constant="240" id="d6s-Ok-zmv"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="240" id="dQg-T1-0v8"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="z69-dk-eQW"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerY" secondItem="p0F-0G-ul7" secondAttribute="centerY" id="74X-he-Co4"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerY" secondItem="p0F-0G-ul7" secondAttribute="centerY" id="AWl-O0-eaP"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="G9s-hw-IWQ"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="If3-pm-hjP"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="P6a-5E-mRe"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="ksc-DY-dpx"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerY" secondItem="p0F-0G-ul7" secondAttribute="centerY" id="sBY-CL-eLf"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cui-9z-1wK">
+                                <rect key="frame" x="158" y="428" width="284" height="56"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Hungry Monkey">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="40" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="(c) 2016 David T. Nguyen, Mai Anh Do " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pom-K0-ccq">
+                                <rect key="frame" x="151" y="492" width="298" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cui-9z-1wK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0Gp-ih-Sq2"/>
+                            <constraint firstItem="pom-K0-ccq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6bM-Gv-HEh"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +76,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch" width="40" height="40"/>
+    </resources>
 </document>

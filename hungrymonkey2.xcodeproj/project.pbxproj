@@ -31,7 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6369AD571CF4BBFA00A0CA14 /* hungrymonkey2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hungrymonkey2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6369AD571CF4BBFA00A0CA14 /* Hungry Monkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hungry Monkey.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6369AD5A1CF4BC1300A0CA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6369AD5C1CF4BC1900A0CA14 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		6369AD5E1CF4BC1B00A0CA14 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		6369AD581CF4BBFA00A0CA14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6369AD571CF4BBFA00A0CA14 /* hungrymonkey2.app */,
+				6369AD571CF4BBFA00A0CA14 /* Hungry Monkey.app */,
 				6369AD6F1CF4BC4500A0CA14 /* hungrymonkey2Tests.xctest */,
 			);
 			name = Products;
@@ -128,7 +128,7 @@
 			);
 			name = hungrymonkey2;
 			productName = hungrymonkey2;
-			productReference = 6369AD571CF4BBFA00A0CA14 /* hungrymonkey2.app */;
+			productReference = 6369AD571CF4BBFA00A0CA14 /* Hungry Monkey.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6369AD6E1CF4BC4500A0CA14 /* hungrymonkey2Tests */ = {
@@ -168,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "Hungry Monkey" */;
+			buildConfigurationList = 6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "hungrymonkey2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -352,7 +352,7 @@
 				INFOPLIST_FILE = hungrymonkey2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.davidnguyen.hungrymonkey2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hungry Monkey";
 			};
 			name = Debug;
 		};
@@ -363,7 +363,7 @@
 				INFOPLIST_FILE = hungrymonkey2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.davidnguyen.hungrymonkey2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hungry Monkey";
 			};
 			name = Release;
 		};
@@ -395,7 +395,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "Hungry Monkey" */ = {
+		6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "hungrymonkey2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6369AD761CF4BC4C00A0CA14 /* Debug */,
