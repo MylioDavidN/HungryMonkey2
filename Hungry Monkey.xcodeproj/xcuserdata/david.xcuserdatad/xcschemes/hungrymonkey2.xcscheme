@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
                BuildableName = "hungrymonkey2.app"
                BlueprintName = "hungrymonkey2"
-               ReferencedContainer = "container:hungrymonkey2.xcodeproj">
+               ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "6369AD6E1CF4BC4500A0CA14"
                BuildableName = "hungrymonkey2Tests.xctest"
                BlueprintName = "hungrymonkey2Tests"
-               ReferencedContainer = "container:hungrymonkey2.xcodeproj">
+               ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
             BuildableName = "hungrymonkey2.app"
             BlueprintName = "hungrymonkey2"
-            ReferencedContainer = "container:hungrymonkey2.xcodeproj">
+            ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
             BuildableName = "hungrymonkey2.app"
             BlueprintName = "hungrymonkey2"
-            ReferencedContainer = "container:hungrymonkey2.xcodeproj">
+            ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "6369AD561CF4BBF900A0CA14"
             BuildableName = "hungrymonkey2.app"
             BlueprintName = "hungrymonkey2"
-            ReferencedContainer = "container:hungrymonkey2.xcodeproj">
+            ReferencedContainer = "container:Hungry Monkey.temp_caseinsensitive_rename.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

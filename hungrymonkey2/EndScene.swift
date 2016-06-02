@@ -15,6 +15,7 @@ class EndScene : SKScene {
     
     var HighScore : Int!
     var ScoreLbl : UILabel!
+    //var ScoreLbl = UILabel()
     var HighScoreLbl : UILabel!
     var ScoreCaption : UILabel!
     var HighScoreCaption : UILabel!

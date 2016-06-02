@@ -17,6 +17,7 @@
 		6369AD741CF4BC4B00A0CA14 /* hungrymonkey2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AD731CF4BC4B00A0CA14 /* hungrymonkey2Tests.swift */; };
 		6369AD7F1CF627BB00A0CA14 /* images.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6369AD7E1CF627BA00A0CA14 /* images.atlas */; };
 		63AB128E1CFF22C6003BEFC6 /* files in Resources */ = {isa = PBXBuildFile; fileRef = 63AB128D1CFF22C5003BEFC6 /* files */; };
+		63AB12901CFF2876003BEFC6 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB128F1CFF2876003BEFC6 /* EndScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		6369AD751CF4BC4C00A0CA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6369AD7E1CF627BA00A0CA14 /* images.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = images.atlas; sourceTree = SOURCE_ROOT; };
 		63AB128D1CFF22C5003BEFC6 /* files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = files; sourceTree = "<group>"; };
+		63AB128F1CFF2876003BEFC6 /* EndScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				6369AD7E1CF627BA00A0CA14 /* images.atlas */,
 				6369AD5C1CF4BC1900A0CA14 /* GameScene.sks */,
 				6369AD5E1CF4BC1B00A0CA14 /* GameScene.swift */,
+				63AB128F1CFF2876003BEFC6 /* EndScene.swift */,
 				6369AD601CF4BC1C00A0CA14 /* GameViewController.swift */,
 				6369AD621CF4BC2200A0CA14 /* Main.storyboard */,
 				6369AD651CF4BC2800A0CA14 /* Assets.xcassets */,
@@ -165,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "hungrymonkey2" */;
+			buildConfigurationList = 6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "Hungry Monkey" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -214,6 +217,7 @@
 			files = (
 				6369AD5F1CF4BC1B00A0CA14 /* GameScene.swift in Sources */,
 				6369AD611CF4BC1D00A0CA14 /* GameViewController.swift in Sources */,
+				63AB12901CFF2876003BEFC6 /* EndScene.swift in Sources */,
 				6369AD5B1CF4BC1300A0CA14 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,7 +395,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "hungrymonkey2" */ = {
+		6369AD521CF4BBF800A0CA14 /* Build configuration list for PBXProject "Hungry Monkey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6369AD761CF4BC4C00A0CA14 /* Debug */,
