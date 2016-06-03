@@ -32,6 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var Monkey = SKSpriteNode()
     var Background = SKSpriteNode(imageNamed: "files/bg.jpg")
+    var BgMusic: SKAudioNode = SKAudioNode(fileNamed: "files/bgmusic1.wav")
     
     var TextureAtlas = SKTextureAtlas()
     var TextureArray = [SKTexture]()
@@ -58,6 +59,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Background.zPosition = -5
         Background.size = CGSize(width: self.size.width, height: self.size.height)
         self.addChild(Background)
+        
+        // add background music
+        //BgMusic = SKAudioNode(fileNamed: "files/bgmusic1.wav")
+        self.addChild(BgMusic)
+        //addChild(BgMusic)
         
         TextureAtlas = SKTextureAtlas(named: "images")
         
@@ -141,6 +147,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Monkey.removeFromParent()
         self.view?.presentScene(EndScene())
         ScoreLbl.removeFromSuperview()
+        
+        // stop background music
+        BgMusic.runAction(SKAction.stop())
         
     }
     
