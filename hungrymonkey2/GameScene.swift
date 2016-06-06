@@ -149,7 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ScoreLbl.removeFromSuperview()
         
         // stop background music
-        BgMusic.runAction(SKAction.stop())
+        //BgMusic.runAction(SKAction.stop())
         
     }
     

@@ -23,7 +23,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p0F-0G-ul7">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="Qev-Ab-Eit">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="Qev-Ab-Eit">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="Eag-HR-KTM"/>
@@ -35,12 +35,8 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerY" secondItem="p0F-0G-ul7" secondAttribute="centerY" id="74X-he-Co4"/>
-                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerY" secondItem="p0F-0G-ul7" secondAttribute="centerY" id="AWl-O0-eaP"/>
-                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="G9s-hw-IWQ"/>
-                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="If3-pm-hjP"/>
-                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="P6a-5E-mRe"/>
-                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="ksc-DY-dpx"/>
-                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerY" secondItem="p0F-0G-ul7" secondAttribute="centerY" id="sBY-CL-eLf"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="Ll9-hl-AU1"/>
+                                            <constraint firstItem="Qev-Ab-Eit" firstAttribute="centerX" secondItem="p0F-0G-ul7" secondAttribute="centerX" id="TOI-xq-NPG"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -50,17 +46,17 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Hungry Monkey">
                                         <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="40" name="HelveticaNeue"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="(c) 2016 David T. Nguyen, Mai Anh Do " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pom-K0-ccq">
                                 <rect key="frame" x="151" y="492" width="298" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -77,6 +73,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch" width="40" height="40"/>
+        <image name="launch" width="378" height="345"/>
     </resources>
 </document>
