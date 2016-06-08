@@ -32,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var ScoreLbl = UILabel()
     
     var Monkey = SKSpriteNode()
-    var Background = SKSpriteNode(imageNamed: "files/bg.jpg")
+    var Background = SKSpriteNode(imageNamed: "files/junglebg4a.png")//(imageNamed: "files/junglebg1.jpg")//(imageNamed: "files/bg.jpg")
     //var BgMusic: SKAudioNode = SKAudioNode(fileNamed: "files/bgmusic1.wav")
     var BgURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("files/bgmusic2", ofType: "wav")!)
     var GameOverURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("files/gameover", ofType: "wav")!)
@@ -91,8 +91,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         Monkey = SKSpriteNode(imageNamed: TextureAtlas.textureNames[0] as String)
-        Monkey.size = CGSize(width: 50, height: 80)
-        Monkey.position = CGPoint(x: self.size.width / 2, y: self.size.height / 5)
+        Monkey.size = CGSize(width: 60, height: 120)
+        Monkey.position = CGPoint(x: self.size.width / 2, y: self.size.height / 10)
         
         Monkey.physicsBody = SKPhysicsBody(rectangleOfSize: Monkey.size)
         Monkey.physicsBody?.affectedByGravity = false
@@ -186,6 +186,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let MinValue = UInt32(self.frame.size.width / 6)
         let MaxValue = UInt32(self.frame.size.width - self.frame.size.width / 6)
         let DropPoint = UInt32(MaxValue - MinValue)
+        //NSLog("Min: \(MinValue), Max: \(MaxValue)")
         
         Banana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
         Banana.physicsBody = SKPhysicsBody(rectangleOfSize: Banana.size)
@@ -204,8 +205,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        NSLog("banana duration: \(BananaDropDuration)")
-        NSLog("rotten banana duration: \(RottenBananaDropDuration)")
+        //NSLog("banana duration: \(BananaDropDuration)")
+        //NSLog("rotten banana duration: \(RottenBananaDropDuration)")
         
         let action = SKAction.moveToY(-70, duration: BananaDropDuration)
         let actionDone = SKAction.removeFromParent()
