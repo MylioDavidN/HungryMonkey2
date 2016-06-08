@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 struct PhysicsCategory {
     static let Banana: UInt32 = 1
@@ -32,7 +33,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var Monkey = SKSpriteNode()
     var Background = SKSpriteNode(imageNamed: "files/bg.jpg")
-    var BgMusic: SKAudioNode = SKAudioNode(fileNamed: "files/bgmusic1.wav")
+    //var BgMusic: SKAudioNode = SKAudioNode(fileNamed: "files/bgmusic1.wav")
+    var BgURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("files/bgmusic2", ofType: "wav")!)
+    var GameOverURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("files/gameover", ofType: "wav")!)
+    var EatBananaURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("files/eatbanana", ofType: "wav")!)
+    var EatRottenBananaURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("files/eatrottenbanana", ofType: "wav")!)
+    var AudioPlayer = AVAudioPlayer()
+    var AudioPlayerEatBanana = AVAudioPlayer()
+    var AudioPlayerEatRottenBanana = AVAudioPlayer()
     
     var TextureAtlas = SKTextureAtlas()
     var TextureArray = [SKTexture]()
@@ -62,8 +70,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // add background music
         //BgMusic = SKAudioNode(fileNamed: "files/bgmusic1.wav")
-        self.addChild(BgMusic)
-        //addChild(BgMusic)
+        //self.addChild(BgMusic)
+        AudioPlayer = try! AVAudioPlayer(contentsOfURL: BgURL, fileTypeHint: nil)
+        AudioPlayer.numberOfLoops = -1 //loop background music
+        AudioPlayer.play()
+        
+        // eat banana music
+        AudioPlayerEatBanana = try! AVAudioPlayer(contentsOfURL: EatBananaURL, fileTypeHint: nil)
+        AudioPlayerEatRottenBanana = try! AVAudioPlayer(contentsOfURL: EatRottenBananaURL, fileTypeHint: nil)
         
         TextureAtlas = SKTextureAtlas(named: "images")
         
@@ -77,7 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         Monkey = SKSpriteNode(imageNamed: TextureAtlas.textureNames[0] as String)
-        Monkey.size = CGSize(width: 70, height: 140)
+        Monkey.size = CGSize(width: 50, height: 80)
         Monkey.position = CGPoint(x: self.size.width / 2, y: self.size.height / 5)
         
         Monkey.physicsBody = SKPhysicsBody(rectangleOfSize: Monkey.size)
@@ -93,9 +107,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(Monkey)
         
         ScoreLbl.text = "\(Score)"
-        ScoreLbl = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        ScoreLbl = UILabel(frame: CGRect(x: 20, y: 20, width: 100, height: 60))
         //ScoreLbl.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.3)
         ScoreLbl.textColor = UIColor.whiteColor()
+        ScoreLbl.font = UIFont(name: "HelveticaNeue-Bold", size: 50)
         
         self.view?.addSubview(ScoreLbl)
         
@@ -122,6 +137,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func CollisionMonkeyWithBanana(Monkey: SKSpriteNode, Banana: SKSpriteNode) {
         //NSLog("another banana eaten")
         
+        //AudioPlayerEatBanana = try! AVAudioPlayer(contentsOfURL: EatBananaURL, fileTypeHint: nil)
+        //AudioPlayer.numberOfLoops = -1 //loop background music
+        AudioPlayerEatBanana.play()
+        
         Banana.removeFromParent()
         
         Score = Score + 1
@@ -131,6 +150,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func CollisionMonkeyWithRottenBanana(Monkey: SKSpriteNode, RottenBanana: SKSpriteNode) {
+        
+        AudioPlayerEatRottenBanana.play()
         
         // save final score
         var ScoreDefault = NSUserDefaults.standardUserDefaults()
@@ -150,14 +171,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // stop background music
         //BgMusic.runAction(SKAction.stop())
+        AudioPlayer.stop()
+        
+        // play game over music
+        AudioPlayer = try! AVAudioPlayer(contentsOfURL: GameOverURL, fileTypeHint: nil)
+        //AudioPlayer.numberOfLoops = -1 //loop music
+        AudioPlayer.play()
         
     }
     
     func dropBananas() {
         let Banana = SKSpriteNode(imageNamed: "files/banana.png")
         
-        let MinValue = self.frame.size.width / 8
-        let MaxValue = self.frame.size.width - 20
+        let MinValue = UInt32(self.frame.size.width / 6)
+        let MaxValue = UInt32(self.frame.size.width - self.frame.size.width / 6)
         let DropPoint = UInt32(MaxValue - MinValue)
         
         Banana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
@@ -167,6 +194,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Banana.physicsBody?.affectedByGravity = false
         Banana.physicsBody?.dynamic = true
         
+        // every 20 points that user get, increase dropping speed
+        if ((Score % 20) == 0) {
+            if (BananaDropDuration > 0.5) {
+                BananaDropDuration = BananaDropDuration - 0.2
+            }
+            if (RottenBananaDropDuration > 0.5) {
+                RottenBananaDropDuration = RottenBananaDropDuration - 0.2
+            }
+        }
+        
+        NSLog("banana duration: \(BananaDropDuration)")
+        NSLog("rotten banana duration: \(RottenBananaDropDuration)")
         
         let action = SKAction.moveToY(-70, duration: BananaDropDuration)
         let actionDone = SKAction.removeFromParent()
@@ -179,8 +218,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func dropRottenBananas() {
         let RottenBanana = SKSpriteNode(imageNamed: "files/rottenbanana4.png")
         
-        let MinValue = self.frame.size.width / 8
-        let MaxValue = self.frame.size.width - 20
+        let MinValue = UInt32(self.frame.size.width / 6)
+        let MaxValue = UInt32(self.frame.size.width - self.frame.size.width / 6)
         let DropPoint = UInt32(MaxValue - MinValue)
         
         RottenBanana.position = CGPoint(x: CGFloat(arc4random_uniform(DropPoint)), y: self.size.height)
