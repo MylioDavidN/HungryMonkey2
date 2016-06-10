@@ -91,7 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         Monkey = SKSpriteNode(imageNamed: TextureAtlas.textureNames[0] as String)
-        Monkey.size = CGSize(width: 60, height: 120)
+        Monkey.size = CGSize(width: 40, height: 70)
         Monkey.position = CGPoint(x: self.size.width / 2, y: self.size.height / 10)
         
         Monkey.physicsBody = SKPhysicsBody(rectangleOfSize: Monkey.size)
