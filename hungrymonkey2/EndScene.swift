@@ -70,7 +70,7 @@ class EndScene : SKScene {
         ScoreLbl.center = CGPoint(x: view.frame.size.width / 2, y: view.frame.size.height / 6 + LineHeight + 10)
         ScoreLbl.textColor = UIColor.whiteColor()
         ScoreLbl.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
-        ScoreLbl.text = "\(Score)"
+        ScoreLbl.text = "\(Score!)"
         ScoreLbl.textAlignment = NSTextAlignment.Center
         self.view?.addSubview(ScoreLbl)
         

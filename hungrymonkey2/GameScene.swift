@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var HighScore = Int()
     
-    var Score = Int()
+    var Score : Int = 0
     var ScoreLbl = UILabel()
     
     var Monkey = SKSpriteNode()
@@ -54,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else {
             HighScore = 0
         }
-        Score = 0
+        //Score = 0
         
         physicsWorld.contactDelegate = self
         
