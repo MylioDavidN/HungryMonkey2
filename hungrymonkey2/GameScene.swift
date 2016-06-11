@@ -195,7 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Banana.physicsBody?.affectedByGravity = false
         Banana.physicsBody?.dynamic = true
         
-        // every 20 points that user get, increase dropping speed
+        // every 20 points that user gets, increase dropping speed
         if ((Score % 20) == 0) {
             if (BananaDropDuration > 0.5) {
                 BananaDropDuration = BananaDropDuration - 0.2
@@ -204,9 +204,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 RottenBananaDropDuration = RottenBananaDropDuration - 0.2
             }
         }
+ 
+        // every 101 points that user gets, reset dropping speed (101 prime number, no colision with 20)
+        if ((Score % 101) == 0) {
+                BananaDropDuration = 3.0
+                RottenBananaDropDuration = 3.0
+        }
+
         
-        //NSLog("banana duration: \(BananaDropDuration)")
-        //NSLog("rotten banana duration: \(RottenBananaDropDuration)")
+        NSLog("banana duration: \(BananaDropDuration)")
+        NSLog("rotten banana duration: \(RottenBananaDropDuration)")
         
         let action = SKAction.moveToY(-70, duration: BananaDropDuration)
         let actionDone = SKAction.removeFromParent()
